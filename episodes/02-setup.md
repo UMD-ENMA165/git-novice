@@ -25,15 +25,11 @@ of configurations we will set as we get started with Git:
 - what our preferred text editor is,
 - and that we want to use these settings globally (i.e. for every project).
 
-On a command line, Git commands are written as `git verb options`,
-where `verb` is what we actually want to do and `options` is additional optional information which may be needed for the `verb`. So here is how
+So here is how
 Alfredo sets up his new laptop:
 
-```bash
-$ git config --global user.name "Alfredo Linguini"
-$ git config --global user.email "a.linguini@ratatouille.fr"
-```
-
+Select **Sourcetree > Preferences**
+![[Pasted image 20250201123859.png]]
 Please use your own name and email address instead of Alfredo's. This user name and email will be associated with your subsequent Git activity,
 which means that any changes pushed to
 [GitHub](https://github.com/),
@@ -53,36 +49,6 @@ If you elect to use a private email address with GitHub, then use GitHub's no-re
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## Line Endings
-
-As with other keys, when you press <kbd>Enter</kbd> or <kbd>↵</kbd> or on Macs, <kbd>Return</kbd> on your keyboard,
-your computer encodes this input as a character.
-Different operating systems use different character(s) to represent the end of a line.
-(You may also hear these referred to as newlines or line breaks.)
-Because Git uses these characters to compare files,
-it may cause unexpected issues when editing a file on different machines.
-Though it is beyond the scope of this lesson, you can read more about this issue
-[in the Pro Git book](https://www.git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_core_autocrlf).
-
-You can change the way Git recognizes and encodes line endings
-using the `core.autocrlf` command to `git config`.
-The following settings are recommended:
-
-On macOS and Linux:
-
-```bash
-$ git config --global core.autocrlf input
-```
-
-And on Windows:
-
-```bash
-$ git config --global core.autocrlf true
-```
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Alfredo also has to set his favorite text editor, following this table:
 

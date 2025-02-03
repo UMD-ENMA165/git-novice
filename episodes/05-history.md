@@ -28,153 +28,48 @@ directory by using the identifier `HEAD`.
 We've been adding small changes at a time to `guacamole.md`, so it's easy to track our
 progress by looking, so let's do that using our `HEAD`s.  Before we start,
 let's make a change to `guacamole.md`, adding yet another line.
-
-```bash
-$ nano guacamole.md
-$ cat guacamole.md
-```
-
-```output
-# Guacamole
-## Ingredients
-* avocado
-* lime
-* salt
-## Instructions
-An ill-considered change
-```
+![[Pasted image 20250202103203.png]]
 
 Now, let's see what we get.
+![[Pasted image 20250202103136.png]]
 
-```bash
-$ git diff HEAD guacamole.md
-```
+Note that `HEAD` is the default comparison point for the "diff" panel. However, the real power of `git diff` lies in its ability to compare with previous commits. For switching to the **History** view and selecting multiple commits, we can look at the commit before `HEAD`.
+![[Pasted image 20250202103609.png]]
 
-```output
-diff --git a/guacamole.md b/guacamole.md
-index b36abfd..0848c8d 100644
---- a/guacamole.md
-+++ b/guacamole.md
-@@ -4,3 +4,4 @@
- * lime
- * salt
- ## Instructions
-+An ill-considered change
-```
+If we want to see the differences between older commits we can use select a different range of commits in **History**:
+![[Pasted image 20250202103913.png]]
 
-Note that `HEAD` is the default option for `git diff`, so omitting it will not change the command's output at all (give it a try). However, the real power of `git diff` lies in its ability to compare with previous commits. For example, by adding `~1` (where "~" is "tilde", pronounced [**til**\-d*uh*]), we can look at the commit before `HEAD`.
-
-```bash
-$ git diff HEAD~1 guacamole.md
-```
-
-If we want to see the differences between older commits we can use `git diff`
-again, but with the notation `HEAD~1`, `HEAD~2`, and so on, to refer to them:
-
-```bash
-$ git diff HEAD~2 guacamole.md
-```
-
-```output
-diff --git a/guacamole.md b/guacamole.md
-index df0654a..b36abfd 100644
---- a/guacamole.md
-+++ b/guacamole.md
-@@ -1,3 +1,6 @@
- # Guacamole
- ## Ingredients
-+* avocado
-+* lime
-+* salt
- ## Instructions
-```
-
-We could also use `git show` which shows us what changes we made at an older commit as
+We could also select an individual commit in the **History**, which shows us what changes we made at an older commit as
 well as the commit message, rather than the *differences* between a commit and our
-working directory that we see by using `git diff`.
-
-```bash
-$ git show HEAD~2 guacamole.md
-```
-
-```output
-commit f22b25e3233b4645dabd0d81e651fe074bd8e73b
-Author: Alfredo Linguini <a.linguini@ratatouille.fr>
-Date:   Thu Aug 22 10:07:21 2013 -0400
-
-    Create a template for recipe
-
-diff --git a/guacamole.md b/guacamole.md
-new file mode 100644
-index 0000000..df0654a
---- /dev/null
-+++ b/guacamole.md
-@@ -0,0 +1,3 @@
-+# Guacamole
-+## Ingredients
-+## Instructions
-```
+working directory that we see by selecting multiple commits.
+![[Pasted image 20250202104034.png]]
 
 In this way,
 we can build up a chain of commits.
-The most recent end of the chain is referred to as `HEAD`;
-we can refer to previous commits using the `~` notation,
-so `HEAD~1`
-means "the previous commit",
-while `HEAD~123` goes back 123 commits from where we are now.
+The most recent end of the chain is referred to as `HEAD`.
 
 We can also refer to commits using
 those long strings of digits and letters
-that both `git log` and `git show` display.
+that **History** displays.
 These are unique IDs for the changes,
 and "unique" really does mean unique:
 every change to any set of files on any computer
 has a unique 40-character identifier.
 Our first commit was given the ID
-`f22b25e3233b4645dabd0d81e651fe074bd8e73b`,
-so let's try this:
-
-```bash
-$ git diff f22b25e3233b4645dabd0d81e651fe074bd8e73b guacamole.md
-```
-
-```output
-diff --git a/guacamole.md b/guacamole.md
-index df0654a..93a3e13 100644
---- a/guacamole.md
-+++ b/guacamole.md
-@@ -1,3 +1,7 @@
- # Guacamole
- ## Ingredients
-+* avocado
-+* lime
-+* salt
- ## Instructions
-+An ill-considered change
-```
+`0c93968d013f65a7191ce10420f71d9cad271a19`,
+so let's try this: 
+- Select **Jump to > Commit**
+![[Pasted image 20250202104434.png]]
+-  enter `0c93968d013f65a7191ce10420f71d9cad271a19`.
+![[Pasted image 20250202104505.png]]
+- Command-click (Control-click on Windows) to also select **Uncommited changes**
+![[Pasted image 20250202104703.png]]
 
 That's the right answer,
 but typing out random 40-character strings is annoying,
 so Git lets us use just the first few characters (typically seven for normal size projects):
-
-```bash
-$ git diff f22b25e guacamole.md
-```
-
-```output
-diff --git a/guacamole.md b/guacamole.md
-index df0654a..93a3e13 100644
---- a/guacamole.md
-+++ b/guacamole.md
-@@ -1,3 +1,7 @@
- # Guacamole
- ## Ingredients
-+* avocado
-+* lime
-+* salt
- ## Instructions
-+An ill-considered change
-```
+![[Pasted image 20250202104856.png]]
+![[Pasted image 20250202104928.png]]
 
 All right! So
 we can save changes to files and see what we've changed. Now, how
@@ -182,94 +77,34 @@ can we restore older versions of things?
 Let's suppose we change our mind about the last update to
 `guacamole.md` (the "ill-considered change").
 
-`git status` now tells us that the file has been changed,
+**File status** now tells us that the file has been changed,
 but those changes haven't been staged:
-
-```bash
-$ git status
-```
-
-```output
-On branch main
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-    modified:   guacamole.md
-
-no changes added to commit (use "git add" and/or "git commit -a")
-```
+![[Pasted image 20250202105405.png]]
 
 We can put things back the way they were
-by using `git restore`:
+by using **Discard file**
+![[Pasted image 20250202105446.png]]
+If we return to `guacamole.md` in JupyterLab Desktop and choose **File > Reload Markdown File from Disk** (if you use a different editor, the steps will probably be different):
+![[Pasted image 20250202105620.png]]
+we see
+![[Pasted image 20250202105703.png]]
 
-```bash
-$ git restore guacamole.md
-$ cat guacamole.md
-```
-
-```output
-# Guacamole
-## Ingredients
-* avocado
-* lime
-* salt
-## Instructions
-```
-
-As you might guess from its name,
-`git restore` restores an old version of a file.
+As you might guess from its name, **Discard file** restores an old version of a file.
 By default,
 it recovers the version of the file recorded in `HEAD`,
 which is the last saved commit.
 If we want to go back even further,
-we can use a commit identifier instead, using `-s` option:
-
-```bash
-$ git restore -s f22b25e guacamole.md
-```
-
-```bash
-$ cat guacamole.md
-```
-
-```output
-# Guacamole
-## Ingredients
-## Instructions
-```
-
-```bash
-$ git status
-```
-
-```output
-On branch main
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-    modified:   guacamole.md
-
-no changes added to commit (use "git add" and/or "git commit -a")
-
-```
-
-Notice that the changes are not currently in the staging area, and have not been committed. 
-If we wished, we can put things back the way they were at the last commit by using `git restore` to overwrite
+we can select a commit in the **History** and then Control-click (Right-click) on the file we wish to restore:
+![[Pasted image 20250202110839.png]]![[Pasted image 20250202110809.png]]
+![[Pasted image 20250202110928.png]]
+After reloading in JupyterLab Desktop
+![[Pasted image 20250202111026.png]]
+and Sourcetree's **File status** shows
+![[Pasted image 20250202111219.png]]
+Notice that the changes have been staged, but have not been committed. 
+If we wished, we can put things back the way they were at the last commit by using **Unstage file** followed by **Discard file** to overwrite
 the working copy with the last committed version:
-
-```bash
-$ git restore guacamole.md
-$ cat guacamole.md
-```
-
-```output
-# Guacamole
-## Ingredients
-* avocado
-* lime
-* salt
-## Instructions
-```
+![[Pasted image 20250202111425.png]]
 
 It's important to remember that
 we must use the commit number that identifies the state of the repository
