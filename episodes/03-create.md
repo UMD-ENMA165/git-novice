@@ -22,37 +22,36 @@ we can start using it.
 
 We will help Alfredo with his new project, create a repository with all his recipes.
 
-First, let's create a new directory in the `Desktop` folder for our work and then change the current working directory to the newly created one:
-![[Screen Shot 2025-02-01 at 8.21.18 PM.png]]
-![[Pasted image 20250201202611.png]]
-![[Pasted image 20250201202627.png]]
-![[Pasted image 20250201202659.png]]
+First, let's create a new directory in the `Desktop` folder for our work and then change the current working directory to the newly created one, using **File > New Folder** in the macOS Finder, **[folder icon] > New folder** in the Windows File Explorer.
+
+![](fig/Finder_screenshot_untitled.png)
+![](fig/Finder_screenshot_rename.png)
+![](fig/Finder_screenshot_recipes.png)
 Then we tell Git to make `recipes` a [repository](../learners/reference.md#repository)
 \-- a place where Git can store versions of our files:
 ### New > Create Local Repository
-![[Pasted image 20250201204725.png]]
+![](fig/Sourcetree_screenshot_bookmarks.png)
 
-![[Pasted image 20250201203957.png]]
 :::::::::::::::::::::::::::::::::::::::::  callout
 ## Drag and Drop
 
 It is also possible to create a local repository by dragging and dropping the `recipes` folder from the `Desktop` folder onto the [Bookmarks window](https://confluence.atlassian.com/get-started-with-sourcetree/bookmarks-window-847359137.html) in Sourcetree.
 
-![[Pasted image 20250201203227.png]]
+![](fig/Sourcetree_screenshot_drag&drop.png)
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 In the **Create a local repository** dialog, check that the **Destination Path** is correct and that the **Name** is `recipes`.
-![[Pasted image 20250201203554.png]]
+![](fig/Sourcetree_screenshot_create_local_repo.png)
 If **Also create remote repository** is not grayed out, do not select it at this time.
 
-if the **Destination Path** does not already describe your `recipes/` directory, click the ellipsis (**`...`**) button and use the file browser to navigate into and select it.
-![[Pasted image 20250202060358.png]]
+If the **Destination Path** does not already describe your `recipes/` directory, click the ellipsis (**`...`**) button and use the file browser to navigate into and select it.
+![](fig/Sourcetree_screenshot_destination_path.png)
 
 If a dialog reports that the destination path already exists, click **Yes** to continue and create a repository in this folder.
-![[Pasted image 20250202063348.png]]
+![](fig/Sourcetree_screenshot_destination_problem.png)
 
-You should see new `recipes` bookmark [Bookmarks window](https://confluence.atlassian.com/get-started-with-sourcetree/bookmarks-window-847359137.html).
-![[Pasted image 20250201203640.png]]
+You should see a new `recipes` bookmark in the [Bookmarks window](https://confluence.atlassian.com/get-started-with-sourcetree/bookmarks-window-847359137.html).
+![](fig/Sourcetree_screenshot_bookmarks_recipes.png)
 It is important to note that **Create Local Repository** will create a repository that
 can include subdirectories and their files---there is no need to create
 separate repositories nested within the `recipes` repository, whether
@@ -62,10 +61,11 @@ repository are completely separate processes.
 
 If we return to the file manager (Finder, Windows File Explorer, KDE Desktop, ...) to show the directory's contents,
 it appears that nothing has changed:
-![[Pasted image 20250202061308.png]]
+![](fig/Finder_screenshot_recipes.png)
+
 If we show hidden files (in macOS Finder, press **Command+Shift+period** (using the "`.`" key);  in Windows File Explorer, select **View > Hidden Items**) we can see that Git has created a hidden directory within `recipes` called `.git`:
 
-![[{C81044EF-DCC1-4A64-A416-FF80EB1578FF}.png]]
+![](fig/Explorer_screenshot_hidden_git.png)
 
 Git uses this special subdirectory to store all the information about the project,
 including the tracked files and sub-directories located within the project's directory.
@@ -75,7 +75,7 @@ we will lose the project's history.
 Return to Sourcetree and double-click the `recipes` bookmark in the [Bookmarks window](https://confluence.atlassian.com/get-started-with-sourcetree/bookmarks-window-847359137.html). A window will open displaying information about the `recipes` repository.
 
 We can now start using one of the most important Sourcetree representations of a Git repository, which is particularly helpful to beginners. Select **File status** from the [Sidebar](https://confluence.atlassian.com/get-started-with-sourcetree/sidebar-847359144.html). **File status** tells us the status of our project, and better, a list of changes in the project and options on what to do with those changes. We can view it as often as we want, whenever we want to understand what is going on.
-![[Pasted image 20250201203713.png]]
+![](fig/Sourcetree_screenshot_file_status.png)
 In the middle of the window, you should see the message "Nothing to commit".
 
 :::::::::::::::::::::::::::::::::::::::  challenge

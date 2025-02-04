@@ -29,7 +29,7 @@ So here is how
 Alfredo sets up his new laptop:
 
 Select **Sourcetree > Preferences**
-![[Pasted image 20250201123859.png]]
+![](fig/Sourcetree_screenshot_preferences.png)
 Please use your own name and email address instead of Alfredo's. This user name and email will be associated with your subsequent Git activity,
 which means that any changes pushed to
 [GitHub](https://github.com/),

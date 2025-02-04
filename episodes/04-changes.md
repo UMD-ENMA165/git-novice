@@ -23,21 +23,25 @@ exercises: 0
 Open a **New Session** in JupyterLab Desktop
 
 By default, the session should open in your home directory.
-![[Pasted image 20250202074659.png]]
+![](fig/JupyterLab_screenshot_new_session.png)
 If you do not see the sidebar listing of files and directories, click on the folder icon at the top left. If you do not see a folder icon, click on the gray [hamburger button](https://en.wikipedia.org/wiki/Hamburger_button) at the top right and choose **UI Mode > Multi document IDE**
-![[Pasted image 20250202074908.png]]
-![[Pasted image 20250202075000.png]]First let's make sure Using the sidebar, navigate to the `Desktop/recipes` directory by double-clicking folders to open them. You should be in the `recipes` directory.
-![[Pasted image 20250202075358.png]]
+![](fig/JupyterLab_screenshot_UIMode.png)
+
+
+First let's make sure ???
+
+Using the sidebar, navigate to the `Desktop/recipes` directory by double-clicking folders to open them. You should be in the `recipes` directory.
+![](fig/JupyterLab_screenshot_recipes.png)
 Let's create a file called `guacamole.md` that contains the basic structure of a recipe.
 We'll use JupyterLab Desktop to edit the file;
 you can use whatever editor you like. 
 But remember, the steps to create or edit a new file will depend on the editor you choose (it might not be JupyterLab). For a refresher on text editors, check out ["Which Editor?"](https://swcarpentry.github.io/shell-novice/03-create.html#which-editor) in [The Unix Shell](https://swcarpentry.github.io/shell-novice/) lesson.
 
 In the **Launcher** tab occupying most of the window, click **Other > Markdown File**. The **Launcher** will be replaced by a tab labeled `untitled.md`.
-![[Pasted image 20250202075633.png]]
+![](fig/JupyterLab_screenshot_untitled.png)
 From the toolbar, choose **File > Rename Markdown File** to change the name to `guacamole.md`:
-![[Pasted image 20250202075710.png]]
-![[Pasted image 20250202075839.png]]
+![](fig/JupyterLab_screenshot_rename.png)
+![](fig/JupyterLab_screenshot_guacamole.png)
 
 Type the text below into the `guacamole.md` file:
 
@@ -48,13 +52,12 @@ Type the text below into the `guacamole.md` file:
 ```
 
 Save the file.
-
-![[Pasted image 20250202080007.png]]
+![](fig/JupyterLab_screenshot_outline.png)
 Next, let’s verify that the file was properly created by looking in the file manager:
-![[Pasted image 20250202080300.png]]
+![](fig/Finder_screenshot_guacamole.png)
 If we check the status of our project in Sourcetree again,
 Git tells us that it's noticed the new file:
-![[Pasted image 20250202080406.png]]
+![](fig/Sourcetree_screenshot_unstaged.png)
 
 The items with a purple `?` icon next to them in the "Unstaged files" panel means
 that there are files in the directory that Git isn't keeping track of
@@ -62,17 +65,17 @@ that there are files in the directory that Git isn't keeping track of
 We can tell Git to track a file by 
 - clicking the checkbox to the left of the file, or
 - clicking the ellipsis (**`...`**) to the right of the file and choosing **Stage file**, or
-	![[Pasted image 20250202080911.png]]
+	![](fig/Sourcetree_screenshot_stagemac.png)
 - clicking the plus (**`+`**) button to the right of the file
-	![[{A6A16550-C133-49D9-8A74-A9AD5AA90E21}.png]]
+	![](fig/Sourcetree_screenshot_stagewin.png)
 
 and then check that the right thing happened:
-![[Pasted image 20250202082919.png]]
+![[Sourcetree_screenshot_staged.png]]
 `guacamole.md` has moved to the **Staged files** panel and now has a green `+` icon next to it. Git now knows that it's supposed to keep track of `guacamole.md`,
 but it hasn't recorded these changes as a commit yet.
 To get it to do that,
 we need to do one more step. Click in the box at the bottom that says "Commit message" and enter the text "Create a template for recipe"
-![[Pasted image 20250202083329.png]]
+![](fig/Sourcetree_screenshot_commit.png)
 
 When we click **Commit**,
 Git takes everything we have told it to save by putting under **Staged files**
@@ -88,11 +91,11 @@ changes made in the commit. Generally, the message should complete the sentence 
 If you want to go into more detail, add a blank line between the summary line and your additional notes. Use this additional space to explain why you made changes and/or what their impact will be. 
 
 If we look at the **File status** now
-![[Pasted image 20250202083852.png]]
+![](fig/Sourcetree_screenshot_uptodate.png)
 it tells us everything is up to date.
 If we want to know what we've done recently,
 we can ask Git to show us the project's history selecting **History** in the [Sidebar](https://confluence.atlassian.com/get-started-with-sourcetree/sidebar-847359144.html):
-![[Pasted image 20250202084116.png]]
+![](fig/Sourcetree_screenshot_history.png)
 **History** lists all commits  made to a repository in reverse chronological order.
 The listing for each commit includes
 the commit's full identifier,
@@ -126,10 +129,10 @@ Now suppose Alfredo adds more information to the file.
 
 (Again, we'll edit with JupyterLab Desktop;
 you may use a different editor.)
-![[Pasted image 20250202084438.png]]
+![](fig/JupyterLab_screenshot_ingredients.png)
 When we look at Sourcetree's **File status** now,
 it tells us that a file it already knows about has been modified:
-![[Pasted image 20250202084605.png]]
+![](fig/Sourcetree_screenshot_diff.png)
 `guacamole.md` now appears in the **Unstaged files** panel with an orange `...` icon.
 We have changed this file,
 but we haven't told Git we will want to save those changes
@@ -139,14 +142,14 @@ So let's do that now. It is good practice to always review
 our changes before saving them. We do this using the "diff" panel.
 This shows us the differences between the current state
 of the file and the most recently saved version:
-![[Pasted image 20250202085552.png]]
+![](Sourcetree_screenshot_ingredients_diff.png)
 The colored lines are the most interesting, they show us the actual differences
   and the lines on which they occur.
   In particular,
   the `+` marker in the first column shows where we added a line.
 
 After reviewing our change, it's time to commit it. Click on "Commit message" or select **Repository > Commit**, enter the message "Add ingredients for basic guacamole", and click **Commit**.
-![[Pasted image 20250202085908.png]]
+![](fig/Sourcetree_screenshot_commit_unstaged.png)
 
 Whoops:
 Git won't commit because we didn't use stage first.
@@ -200,32 +203,32 @@ to the staging area
 and into long-term storage.
 First,
 we'll improve our recipe by changing 'lemon' to 'lime':
-![[Pasted image 20250202092039.png]]
+![](fig/JupyterLab_screenshot_lime.png)
 Sourcetree **File status** now shows
-![[Pasted image 20250202092126.png]]
+![](Sourcetree_screenshot_lime_diff.png)
 
 So far, so good:
 we've replaced one line (shown with a `-` in the first column) with a new line
 (shown with a `+` in the first column).
 Now let's put that change in the staging area
 and see what **File status** shows:
-![[Pasted image 20250202092228.png]]
+![](Sourcetree_screenshot_lime_staged.png)
 There is nothing in the "diff" panel:
 as far as Git can tell,
 there's no difference between what it's been asked to save permanently
 and what's currently in the directory.
 However,
 if we select `guacamole.md` in the **Staged files** panel:
-![[Pasted image 20250202092331.png]]
+![](Sourcetree_screenshot_lime_staged_diff.png)
 it shows us the difference between
 the last committed change
 and what's in the staging area.
 Let's save our changes with the commit message "Modify guacamole to the traditional recipe":
-![[Pasted image 20250202092426.png]]
+![](Sourcetree_screenshot_lime_commit.png)
 check our status:
-![[Pasted image 20250202092452.png]]
+![](Sourcetree_screenshot_lime_committed.png)
 and look at the history of what we've done so far:
-![[Pasted image 20250202092532.png]]
+![](fig/Sourcetree_screenshot_lime_history.png)
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## Directories
@@ -235,9 +238,9 @@ Two important facts you should know about directories in Git.
 1. Git does not track directories on their own, only files within them.
   Try it for yourself:
 - Use the file manager to create a directory `cakes` within `recipes`:
-	![[Pasted image 20250202092759.png]]
+	![](fig/Finder_screenshot_cakes.png)
 - Examine Sourcetree's **File status**:
-	![[Pasted image 20250202092852.png]]
+	![](fig/Sourcetree_screenshot_cakes_status.png)
 
   Note, our newly created empty directory `cakes` does not appear in
   the list of untracked files.
@@ -247,16 +250,16 @@ Two important facts you should know about directories in Git.
 2. If you create a directory in your Git repository and populate it with files,
   you can add all the files in the directory at once by referring to the directory in your `git add` command. Try it for yourself:
 	- Using JupyterLab Desktop (or the file manager and your editor of choice), create a directory called `brownie_cakes` within `recipe/cakes`:
-	![[Pasted image 20250202093145.png]]
+	![](fig/JupyterLab_screenshot_brownie_cakes.png)
 	 and then an empty text file called `lemon_drizzle` within `recipe/cakes/brownie_cakes`:
-	![[Pasted image 20250202093728.png]]	![[Pasted image 20250202093304.png]]
+	![](fig/JupyterLab_screenshot_launch_txt.png)	![](fig/JupyterLab_screenshot_lemon_drizzle.png)
   - Examine Sourcetree's **File status**:
-	  ![[Pasted image 20250202093942.png]]
+	  ![](Sourcetree_screenshot_lemon_drizzle_unstaged.png)
 - Click next to `cakes/brownie_cakes/lemon_drizzle` to stage `lemon_drizzle` and all of the directories that contain it.
-	![[Pasted image 20250202094218.png]]
+	![](fig/Sourcetree_screenshot_lemon_drizzle_stage.png)
   
   Before moving on, we will commit these changes with the message "Add some initial cakes".
-  ![[Pasted image 20250202094235.png]]
+  ![](fig/Sourcetree_screenshot_lemon_drizzle_commit.png)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -316,7 +319,7 @@ First we make our changes the ingredients in the `guacamole.md` file to:
 * lime (0.64)
 * salt (2)
 ```
-![[Pasted image 20250202094736.png]]
+![](fig/JupyterLab_screenshot_prices.png)
 and add a `groceries.md` file containing:
 ```output
 # Market A
@@ -324,12 +327,12 @@ and add a `groceries.md` file containing:
 * lime: 0.64 per unit
 * salt: 2 per kg
 ```
-![[Pasted image 20250202094849.png]]
+![](JupyterLab_screenshot_groceries.png)
 Now you can add both files to the staging area:
-![[Pasted image 20250202095250.png]]
+![](fig/Sourcetree_screenshot_groceries.png)
 
 Now the files are ready to commit. If you are ready to commit, use the message "Write prices for ingredients and their source".
-![[Pasted image 20250202095342.png]]
+![](Sourcetree_screenshot_groceries_commit.png)
 
 :::::::::::::::::::::::::
 
@@ -351,22 +354,22 @@ Now the files are ready to commit. If you are ready to commit, use the message "
 ## Solution
 
 If needed, move out of the `recipes` folder:
-![[Pasted image 20250202095508.png]]
+![](fig/Finder_screenshot_recipes_parent.png)
 
 Create a new folder called `bio` and 'move' into it:
-![[Pasted image 20250202095602.png]]
+![](fig/Finder_screenshot_bio.png)
 
 Initialise git with **New > Create Local Repository** (you may need to click the `+` tab to open a new [Bookmarks window](https://confluence.atlassian.com/get-started-with-sourcetree/bookmarks-window-847359137.html) ):
-![[Pasted image 20250202095712.png]]
+![](Sourcetree_screenshot_bio_create.png)
 
 Create your biography file `me.txt` using JupyterLab Desktop or another text editor.
 Once in place, add and commit it to the repository:
-![[Pasted image 20250202101451.png]]
+![](fig/Sourcetree_bio_commit.png)
 
 Modify the file as described (modify one line, add a fourth line).
 To display the differences
 between its updated state and its original state, use "diff" panel:
-![[Pasted image 20250202101737.png]]
+![](fig/Sourcetree_screenshot_bio_diff.png)
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
