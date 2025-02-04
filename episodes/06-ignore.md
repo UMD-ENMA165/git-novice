@@ -28,15 +28,15 @@ having them all listed could distract us from changes that actually matter,
 so let's tell Git to ignore them.
 
 Select `.ipynb_checkpoints/guacamole-checkpoint.md` and then select **Ignore file** under the ellipsis `[...]` button.
-![[Pasted image 20250202211617.png]]
+![](Sourcetree_screenshot_ignore.png)
 In the dialog that appears, select **Ignore exact filename** and choose to add this ignore entry to **This repository only**.
-![[Pasted image 20250202211718.png]]
+![](fig/Sourcetree_screenshot_ignore_file.png)
 The **File status** no longer shows `.ipynb_checkpoints/guacamole-checkpoint.md`, but note there is now an unstaged file `.gitignore`.
-![[Pasted image 20250202212111.png]]
+![](fig/Sourcetree_screenshot_ignore_file_status.png)
 It's tedious to have to add each backup file that JupyterLab creates whenever it's used to edit a file. Select **Ignore file** for `.ipynb_checkpoints/groceries-checkpoint.md` and select **Ignore everything beneath: `.ipnb_checkpoints`**
-![[Pasted image 20250202212257.png]]
+![](fig/Sourcetree_screenshot_ignore_directory.png)
 The **File status** is much cleaner:
-![[Pasted image 20250202212435.png]]
+![](fig/Sourcetree_screenshot_ignore_directory_status.png)
 The only thing Git notices now is the newly-created `.gitignore` file.
 
 In the "diff" panel, we see that this file has two entries,
@@ -51,11 +51,12 @@ but everyone we're sharing our repository with will probably want to ignore
 the same things that we're ignoring.
 
 Let's add and commit `.gitignore`:
-![[Pasted image 20250202214149.png]]
+![](fig/Sourcetree_screenshot_gitignore.png)
 If we wish to add a previously ignored file, we can click **Pending files/sorted by path** and choose **Ignored**:
-![[Pasted image 20250202214952.png]]
+
+![](Sourcetree_screenshot_ignored_show.png)
 The previously ignored files now appear as unstaged files and can be staged and committed.
-![[Pasted image 20250202215058.png]]
+![](fig/Sourcetree_screenshot_ignored_status.png)
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
