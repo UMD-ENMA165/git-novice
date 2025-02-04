@@ -28,21 +28,21 @@ directory by using the identifier `HEAD`.
 We've been adding small changes at a time to `guacamole.md`, so it's easy to track our
 progress by looking, so let's do that using our `HEAD`s.  Before we start,
 let's make a change to `guacamole.md`, adding yet another line.
-![[Pasted image 20250202103203.png]]
+![](fig/JupyterLab_screenshot_illconsidered.png)
 
 Now, let's see what we get.
-![[Pasted image 20250202103136.png]]
+![](fig/Sourcetree_screenshot_illconsidered.png)
 
 Note that `HEAD` is the default comparison point for the "diff" panel. However, the real power of `git diff` lies in its ability to compare with previous commits. For switching to the **History** view and selecting multiple commits, we can look at the commit before `HEAD`.
-![[Pasted image 20250202103609.png]]
+![](fig/Sourcetree_screenshot_illconsidered_history.png)
 
 If we want to see the differences between older commits we can use select a different range of commits in **History**:
-![[Pasted image 20250202103913.png]]
+![](fig/Sourcetree_screenshot_history_range.png)
 
 We could also select an individual commit in the **History**, which shows us what changes we made at an older commit as
 well as the commit message, rather than the *differences* between a commit and our
 working directory that we see by selecting multiple commits.
-![[Pasted image 20250202104034.png]]
+![](fig/Sourcetree_screenshot_history_past.png)
 
 In this way,
 we can build up a chain of commits.
@@ -59,17 +59,18 @@ Our first commit was given the ID
 `0c93968d013f65a7191ce10420f71d9cad271a19`,
 so let's try this: 
 - Select **Jump to > Commit**
-![[Pasted image 20250202104434.png]]
--  enter `0c93968d013f65a7191ce10420f71d9cad271a19`.
-![[Pasted image 20250202104505.png]]
-- Command-click (Control-click on Windows) to also select **Uncommited changes**
-![[Pasted image 20250202104703.png]]
+	![](fig/Sourcetree_screenshot_history_jump.png)
+
+-  enter `0c93968d013f65a7191ce10420f71d9cad271a19` and click **OK**.
+![](fig/Sourcetree_screenshot_SHA.png)
+- In order to see what's changed between commit `0c93968d013f65a7191ce10420f71d9cad271a19` and our working copy, Command-click (Control-click on Windows) to also select **Uncommited changes**
+![](fig/Sourcetree_screenshot_SHA_diff.png)
 
 That's the right answer,
 but typing out random 40-character strings is annoying,
 so Git lets us use just the first few characters (typically seven for normal size projects):
-![[Pasted image 20250202104856.png]]
-![[Pasted image 20250202104928.png]]
+![](fig/Sourcetree_screenshot_shortSHA.png)
+![](fig/Sourcetree_screenshot_shortSHA_diff.png)
 
 All right! So
 we can save changes to files and see what we've changed. Now, how
@@ -79,32 +80,34 @@ Let's suppose we change our mind about the last update to
 
 **File status** now tells us that the file has been changed,
 but those changes haven't been staged:
-![[Pasted image 20250202105405.png]]
+![](fig/Sourcetree_screenshot_illconsidered_status.png)
 
 We can put things back the way they were
 by using **Discard file**
-![[Pasted image 20250202105446.png]]
+![](fig/Sourcetree_screenshot_illconsidered_discard.png)
 If we return to `guacamole.md` in JupyterLab Desktop and choose **File > Reload Markdown File from Disk** (if you use a different editor, the steps will probably be different):
-![[Pasted image 20250202105620.png]]
+![](fig/JupyterLab_screenshot_reload.png)
 we see
-![[Pasted image 20250202105703.png]]
+![](fig/JupyterLab_screenshot_discarded.png)
 
 As you might guess from its name, **Discard file** restores an old version of a file.
 By default,
 it recovers the version of the file recorded in `HEAD`,
 which is the last saved commit.
 If we want to go back even further,
-we can select a commit in the **History** and then Control-click (Right-click) on the file we wish to restore:
-![[Pasted image 20250202110839.png]]![[Pasted image 20250202110809.png]]
-![[Pasted image 20250202110928.png]]
+we can select a commit in the **History** and then Control-click (Right-click) on the file we wish to restore and select **Reset to Commit**:
+![](Sourcetree_screenshot_reset_2commit.png)
+When asked to confirm, click **OK**.
+![](fig/Sourcetree_screenshot_reset_confirm.png)
 After reloading in JupyterLab Desktop
-![[Pasted image 20250202111026.png]]
+![](fig/JupyterLab_screenshot_reset.png)
 and Sourcetree's **File status** shows
-![[Pasted image 20250202111219.png]]
+![](fig/Sourcetree_screenshot_reset_status.png)
 Notice that the changes have been staged, but have not been committed. 
 If we wished, we can put things back the way they were at the last commit by using **Unstage file** followed by **Discard file** to overwrite
 the working copy with the last committed version:
-![[Pasted image 20250202111425.png]]
+
+![](fig/JupyterLab_screenshot_reset_discard.png)
 
 It's important to remember that
 we must use the commit number that identifies the state of the repository
